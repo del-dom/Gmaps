@@ -31,9 +31,6 @@
 			lat: 35.696391,
 			lng: 139.764099
 		}, {
-			lat: 37.520903,
-			lng: 127.001244
-		}, {
 			lat: 28.656375,
 			lng: 77.206741
 		}, {
@@ -248,20 +245,21 @@
 		var counter = 0
 
 		setInterval(function () {
-			var randint = Math.floor((Math.random() * 10) + 8)
-			var randloc = Math.floor((Math.random() * 21))
-			styler()
-			setTimeout(function () {
-				map.setCenter({
-					lat: centers[randloc].lat,
-					lng: centers[randloc].lng
-				});
-				map.setZoom(randint)
-				map.setOptions({
-					styles: styles
-				})
-			}, 500)
-		}, 3750)
+				var randint = Math.floor((Math.random() * 10) + 8)
+				var randloc = Math.floor((Math.random() * (centers.length - 1)));
+				styler();
+				setTimeout(function () {
+					map.setCenter({
+						lat: centers[randloc].lat,
+						lng: centers[randloc].lng
+					});
+					map.setZoom(randint)
+					map.setOptions({
+						styles: styles
+					})
+				}, 500)
+			},
+			3750)
 	</script>
 
 </head>
