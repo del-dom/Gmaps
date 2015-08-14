@@ -27,7 +27,7 @@
 			var randVal = minVal + (Math.random() * (maxVal - minVal));
 			return typeof floatVal == 'undefined' ? Math.round(randVal) : randVal.toFixed(floatVal);
 		}
-		var centers = [{
+		var centers = [{ // array of cities
 			lat: 35.696391,
 			lng: 139.764099
 		}, {
@@ -100,17 +100,17 @@
 
 			var mapsaturation = randomXToY(-20, 29)
 			var maplightness = randomXToY(-85, -65)
-			var maprandint = Math.floor((Math.random() * 10))
+			var maprandint = Math.floor((Math.random() * 10)) //used for index of maphex
 
 			var roadsLightness = randomXToY(0, 50)
 			var roadsSaturation = randomXToY(70, 100)
 
-			var arterialrandint = Math.floor((Math.random() * 10))
+			var arterialrandint = Math.floor((Math.random() * 10)) //used for index
 
-			var highwayrandint = Math.floor((Math.random() * 10))
+			var highwayrandint = Math.floor((Math.random() * 10)) //used for index
 
-			var transitrandint = Math.floor((Math.random() * 10))
-			console.log(maphex[maprandint])
+			var transitrandint = Math.floor((Math.random() * 10)) //used for index
+
 			styles = [
 				{
 					stylers: [
@@ -218,7 +218,7 @@
 		styler()
 
 		function initialize() {
-			var randint = Math.floor((Math.random() * 10) + 1)
+			var randint = Math.floor((Math.random() * (centers.length - 1))) // random center location
 
 			var randzoom = Math.floor((Math.random() * 10) + 6)
 
@@ -245,7 +245,7 @@
 		var counter = 0
 
 		setInterval(function () {
-				var randint = Math.floor((Math.random() * 10) + 8)
+				var randzoom = Math.floor((Math.random() * 10) + 6)
 				var randloc = Math.floor((Math.random() * (centers.length - 1)));
 				styler();
 				setTimeout(function () {
@@ -253,7 +253,7 @@
 						lat: centers[randloc].lat,
 						lng: centers[randloc].lng
 					});
-					map.setZoom(randint)
+					map.setZoom(randzoom)
 					map.setOptions({
 						styles: styles
 					})
