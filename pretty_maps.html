@@ -80,7 +80,7 @@
 			lat: 23.713230,
 			lng: 90.399567
 		}]
-		var maphex = ['#680000 ', '#330066', '#003333', '#660000', '#006600', '#008b8b', '#CCFF00', '#663300', '#996600', '#00FFCC']
+		var maphex = ['680000 ', '330066', '003333', '660000', '006600', '008b8b', 'CCFF00', '663300', '996600', '00FFCC']
 		var arterialhex = ['#0000FF', '#00FF33', '#3399CC', '#CC0033', '#CCFF66', '#CC00CC', '#FF33FF', '#FF6600', '#FFFF00', '#99FFFF']
 
 
@@ -197,32 +197,19 @@
 
 		setInterval(function () {
 			var randint = Math.floor((Math.random() * 10) + 8)
+			var randloc = Math.floor((Math.random() * 16))
 			styler()
-
-			if (counter <= centers.length - 1) {
+			setTimeout(function () {
 				map.setCenter({
-					lat: centers[counter].lat,
-					lng: centers[counter].lng
+					lat: centers[randloc].lat,
+					lng: centers[randloc].lng
 				});
 				map.setZoom(randint)
 				map.setOptions({
 					styles: styles
 				})
-				counter++
-			} else {
-				counter = 0
-				map.setCenter({
-					lat: centers[counter].lat,
-					lng: centers[counter].lng
-				});
-				map.setOptions({
-					styles: styles
-				})
-
-				map.setZoom(randint)
-				counter++
-			}
-		}, 3500)
+			}, 500)
+		}, 3000)
 	</script>
 
 </head>
