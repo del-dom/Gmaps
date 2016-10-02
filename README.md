@@ -1,3 +1,4 @@
 # Gmaps
 
-The code for this page: https://msu.edu/~delponte/randomCartography.html
+See this project and others on my blog at domdp.pythonanywhere.com
+
